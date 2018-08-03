@@ -7,6 +7,25 @@ const { dbConnect } = require('./db-mongoose');
 // const {dbConnect} = require('./db-knex');
 
 const app = express();
+let cheeses = [
+  'Bath Blue',
+  'Barkham Blue',
+  'Buxton Blue',
+  'Cheshire Blue',
+  'Devon Blue',
+  'Dorset Blue Vinney',
+  'Dovedale',
+  'Exmoor Blue',
+  'Harbourne Blue',
+  'Lanark Blue',
+  'Lymeswold',
+  'Oxford Blue',
+  'Shropshire Blue',
+  'Stichelton',
+  'Stilton',
+  'Blue Wensleydale',
+  'Yorkshire Blue'
+];
 
 app.use(
   morgan(process.env.NODE_ENV === 'production' ? 'common' : 'dev', {
@@ -21,26 +40,6 @@ app.use(
 );
 
 app.get('/api/cheeses', (req, res) => {
-  const cheeses = [
-    'Bath Blue',
-    'Barkham Blue',
-    'Buxton Blue',
-    'Cheshire Blue',
-    'Devon Blue',
-    'Dorset Blue Vinney',
-    'Dovedale',
-    'Exmoor Blue',
-    'Harbourne Blue',
-    'Lanark Blue',
-    'Lymeswold',
-    'Oxford Blue',
-    'Shropshire Blue',
-    'Stichelton',
-    'Stilton',
-    'Blue Wensleydale',
-    'Yorkshire Blue'
-  ];
-
   res.json(cheeses);
 });
 
